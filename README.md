@@ -3,7 +3,7 @@
 (private readonly string _connectionString = "Server=TuaConnectionString; Initial Catalog=TuoNomeDb; Integrated Security=true; TrustServerCertificate=True";)
 - Crea e popola le tabelle del db utilizzando le query qui sotto.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
--- Creazione della tabella ANAGRAFICA
+-- Creazione della tabella ANAGRAFICA --
 
 CREATE TABLE ANAGRAFICA (
     Idanagrafica INT PRIMARY KEY IDENTITY(1,1),
@@ -15,14 +15,14 @@ CREATE TABLE ANAGRAFICA (
     Cod_Fisc VARCHAR(16)
 );
 
--- Creazione della tabella TIPO_VIOLAZIONE
+-- Creazione della tabella TIPO_VIOLAZIONE --
 
 CREATE TABLE TIPO_VIOLAZIONE (
     Idviolazione INT PRIMARY KEY IDENTITY(1,1),
     descrizione VARCHAR(100)
 );
 
--- Creazione della tabella VERBALE
+-- Creazione della tabella VERBALE --
 
 CREATE TABLE VERBALE (
     Idverbale INT PRIMARY KEY IDENTITY(1,1),
