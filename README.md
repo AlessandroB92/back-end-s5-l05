@@ -1,4 +1,5 @@
 - Per utilizzare l'applicazione creare un dbSQL.
+- Installare il pacchetto NuGet "Microsoft.Data.SqlClient"
 - Assicurarsi di cambiare le connection string all'interno dei controllers
 (private readonly string _connectionString = "Server=TuaConnectionString; Initial Catalog=TuoNomeDb; Integrated Security=true; TrustServerCertificate=True";)
 - Crea e popola le tabelle del db utilizzando le query qui sotto.
