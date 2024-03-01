@@ -1,0 +1,25 @@
+﻿@model List<back_end_s5_l05.Models.StatisticheVerbale>
+
+@{
+    ViewData["Title"] = "Totale Verbali per Trasgressore";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Trasgressore</th>
+            <th>Totale Verbali</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var statistica in Model)
+        {
+            <tr>
+                <td>@statistica.IdAnagrafica</td>
+                <td>@statistica.TotaleVerbali</td>
+            </tr>
+        }
+    </tbody>
+</table>
