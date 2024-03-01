@@ -4,6 +4,7 @@
 - Crea e popola le tabelle del db utilizzando le query qui sotto.
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------
 -- Creazione della tabella ANAGRAFICA
+
 CREATE TABLE ANAGRAFICA (
     Idanagrafica INT PRIMARY KEY IDENTITY(1,1),
     Cognome VARCHAR(50),
@@ -15,12 +16,14 @@ CREATE TABLE ANAGRAFICA (
 );
 
 -- Creazione della tabella TIPO_VIOLAZIONE
+
 CREATE TABLE TIPO_VIOLAZIONE (
     Idviolazione INT PRIMARY KEY IDENTITY(1,1),
     descrizione VARCHAR(100)
 );
 
 -- Creazione della tabella VERBALE
+
 CREATE TABLE VERBALE (
     Idverbale INT PRIMARY KEY IDENTITY(1,1),
     DataViolazione DATE,
