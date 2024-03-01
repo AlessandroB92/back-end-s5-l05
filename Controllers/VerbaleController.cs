@@ -43,6 +43,7 @@ namespace back_end_s5_l05.Controllers
 
                         anagrafiche.Add(anagrafica);
                     }
+                    readerAnagrafiche.Close();
 
                     string queryTipiViolazione = "SELECT Idviolazione, descrizione FROM TIPO_VIOLAZIONE";
                     SqlCommand commandTipiViolazione = new SqlCommand(queryTipiViolazione, conn);
@@ -58,6 +59,7 @@ namespace back_end_s5_l05.Controllers
 
                         tipiViolazione.Add(tipoViolazione);
                     }
+                    readerTipiViolazione.Close();
                 }
             }
             catch (Exception ex)
@@ -76,6 +78,25 @@ namespace back_end_s5_l05.Controllers
         {
             try
             {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    string query = "INSERT INTO VERBALE (DataViolazione, IndirizzoViolazione, NominativoAgente, DataTrascrizioneVerbale, Importo, DecurtamentoPunti, Idanagrafica, Idviolazione) " +
+                                   "VALUES (@DataViolazione, @IndirizzoViolazione, @NominativoAgente, @DataTrascrizioneVerbale, @Importo, @DecurtamentoPunti, @Idanagrafica, @Idviolazione)";
+                    SqlCommand command = new SqlCommand(query, conn);
+                    command.Parameters.AddWithValue("@DataViolazione", verbale.DataViolazione);
+                    command.Parameters.AddWithValue("@IndirizzoViolazione", verbale.IndirizzoViolazione);
+                    command.Parameters.AddWithValue("@NominativoAgente", verbale.NominativoAgente);
+                    command.Parameters.AddWithValue("@DataTrascrizioneVerbale", verbale.DataTrascrizioneVerbale);
+                    command.Parameters.AddWithValue("@Importo", verbale.Importo);
+                    command.Parameters.AddWithValue("@DecurtamentoPunti", verbale.DecurtamentoPunti);
+                    command.Parameters.AddWithValue("@Idanagrafica", verbale.Idanagrafica);
+                    command.Parameters.AddWithValue("@Idviolazione", verbale.Idviolazione);
+
+                    command.ExecuteNonQuery();
+                }
+
                 return RedirectToAction("Index");
             }
             catch (Exception ex)

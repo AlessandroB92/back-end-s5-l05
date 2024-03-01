@@ -5,32 +5,32 @@
 
 <h2>@ViewData["Title"]</h2>
 
-<form asp-action="Create" method="post">
-    <div class="form-group">
+<form asp-action="Create" asp-controller="Anagrafica" method="post" class="">
+    <div class="form-group w-50">
         <label for="DataViolazione">Data Violazione</label>
         <input type="date" id="DataViolazione" name="DataViolazione" class="form-control" />
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="IndirizzoViolazione">Indirizzo Violazione</label>
         <input type="text" id="IndirizzoViolazione" name="IndirizzoViolazione" class="form-control" />
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="NominativoAgente">Nominativo Agente</label>
         <input type="text" id="NominativoAgente" name="NominativoAgente" class="form-control" />
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="DataTrascrizioneVerbale">Data Trascrizione Verbale</label>
         <input type="date" id="DataTrascrizioneVerbale" name="DataTrascrizioneVerbale" class="form-control" />
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="Importo">Importo</label>
         <input type="number" id="Importo" name="Importo" class="form-control" />
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="DecurtamentoPunti">Decurtamento Punti</label>
         <input type="number" id="DecurtamentoPunti" name="DecurtamentoPunti" class="form-control" />
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="Idanagrafica">Anagrafica</label>
         <select id="Idanagrafica" name="Idanagrafica" class="form-control">
             <option value="">Seleziona un'anagrafica</option>
@@ -40,7 +40,7 @@
             }
         </select>
     </div>
-    <div class="form-group">
+    <div class="form-group w-50">
         <label for="Idviolazione">Tipo Violazione</label>
         <select id="Idviolazione" name="Idviolazione" class="form-control">
             <option value="">Seleziona un tipo di violazione</option>
