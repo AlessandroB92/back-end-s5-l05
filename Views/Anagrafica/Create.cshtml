@@ -1,0 +1,31 @@
+﻿@model back_end_s5_l05.Models.Anagrafica
+
+<h2 class="fw-bold my-2">Aggiungi Anagrafica</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group w-50">
+        <label asp-for="Cognome">Cognome</label>
+        <input asp-for="Cognome" class="form-control" />
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="Nome">Nome</label>
+        <input asp-for="Nome" class="form-control" />
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="Indirizzo">Indirizzo</label>
+        <input asp-for="Indirizzo" class="form-control" />
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="Città">Città</label>
+        <input asp-for="Città" class="form-control" />
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="CAP">CAP</label>
+        <input asp-for="CAP" class="form-control" />
+    </div>
+    <div class="form-group w-50">
+        <label asp-for="Cod_Fisc">Codice Fiscale</label>
+        <input asp-for="Cod_Fisc" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary my-3">Aggiungi</button>
+</form>

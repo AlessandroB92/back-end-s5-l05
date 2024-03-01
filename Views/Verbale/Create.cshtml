@@ -1,0 +1,49 @@
+﻿@model back_end_s5_l05.Models.Verbale
+
+<h2>Verbale</h2>
+
+<form asp-action="Create" method="post">
+    <div class="form-group">
+        <label asp-for="DataViolazione">Data Violazione</label>
+        <input asp-for="DataViolazione" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="IndirizzoViolazione">Indirizzo Violazione</label>
+        <input asp-for="IndirizzoViolazione" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="NominativoAgente">Nominativo Agente</label>
+        <input asp-for="NominativoAgente" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DataTrascrizioneVerbale">Data Trascrizione Verbale</label>
+        <input asp-for="DataTrascrizioneVerbale" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="Importo">Importo</label>
+        <input asp-for="Importo" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label asp-for="DecurtamentoPunti">Decurtamento Punti</label>
+        <input asp-for="DecurtamentoPunti" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="Idanagrafica">Nome</label>
+        <input asp-for="Anagrafica.Nome" class="form-control" placeholder="Nome" />
+    </div>
+    <div class="form-group">
+        <label for="Idanagrafica">Cognome</label>
+        <input asp-for="Anagrafica.Cognome" class="form-control" placeholder="Cognome" />
+    </div>
+    <div class="form-group">
+        <label for="Idviolazione">Tipo Violazione</label>
+        <select asp-for="Idviolazione" class="form-control">
+            <option value="">Seleziona un tipo di violazione</option>
+            @foreach (var tipoViolazione in ViewBag.TipiViolazione)
+            {
+                <option value="@tipoViolazione.Idviolazione">@tipoViolazione.Descrizione</option>
+            }
+        </select>
+    </div>
+    <button type="submit" class="btn btn-success my-3">Aggiungi</button>
+</form>
