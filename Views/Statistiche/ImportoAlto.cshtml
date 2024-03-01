@@ -1,0 +1,27 @@
+﻿@model List<back_end_s5_l05.Models.Violazione>
+
+@{
+    ViewData["Title"] = "Importo Maggiore di 400 Euro";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th>Importo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var violazione in Model)
+        {
+            <tr>
+                <td>@violazione.Cognome</td>
+                <td>@violazione.Nome</td>
+                <td>@violazione.Importo</td>
+            </tr>
+        }
+    </tbody>
+</table>

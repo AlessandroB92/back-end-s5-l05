@@ -116,7 +116,9 @@ namespace back_end_s5_l05.Controllers
                     string query = "SELECT v.Idanagrafica, a.Nome, a.Cognome, v.DataViolazione, COUNT(*) AS TotaleVerbali, SUM(v.Importo) AS TotaleImporto, SUM(v.DecurtamentoPunti) AS TotalePuntiDecurtati " +
                                    "FROM VERBALE v " +
                                    "JOIN ANAGRAFICA a ON v.Idanagrafica = a.Idanagrafica " +
-                                   "GROUP BY v.Idanagrafica, a.Nome, a.Cognome, v.DataViolazione";
+                                   "GROUP BY v.Idanagrafica, a.Nome, a.Cognome, v.DataViolazione " +
+                                   "HAVING SUM(v.DecurtamentoPunti) > 10";
+
                     SqlCommand command = new SqlCommand(query, conn);
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -144,6 +146,46 @@ namespace back_end_s5_l05.Controllers
 
             return View(statistiche);
         }
+        public IActionResult ImportoAlto()
+        {
+            List<Violazione> violazioni = new List<Violazione>();
+
+            try
+            {
+                using (var conn = new SqlConnection(_connectionString))
+                {
+                    conn.Open();
+
+                    string query = @"SELECT v.Idverbale, a.Cognome, a.Nome, v.Importo
+                             FROM VERBALE v
+                             JOIN ANAGRAFICA a ON v.Idanagrafica = a.Idanagrafica
+                             WHERE v.Importo > 400";
+                    SqlCommand command = new SqlCommand(query, conn);
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Violazione violazione = new Violazione
+                        {
+                            IdVerbale = reader.GetInt32(0),
+                            Cognome = reader.GetString(1),
+                            Nome = reader.GetString(2),
+                            Importo = reader.GetDecimal(3),
+                        };
+
+                        violazioni.Add(violazione);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Errore durante il recupero delle violazioni con importo maggiore di 400 euro");
+            }
+
+            return View(violazioni);
+        }
+
+
 
     }
 }
