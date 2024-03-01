@@ -9,5 +9,6 @@
         public string Città { get; set; }
         public string CAP { get; set; }
         public string Cod_Fisc { get; set; }
+        public string NomeCompleto => $"{Nome} {Cognome}";
     }
 }

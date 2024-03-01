@@ -1,43 +1,48 @@
 ﻿@model back_end_s5_l05.Models.Verbale
+@{
+    ViewData["Title"] = "Aggiungi Verbale";
+}
 
-<h2>Verbale</h2>
+<h2>@ViewData["Title"]</h2>
 
 <form asp-action="Create" method="post">
     <div class="form-group">
-        <label asp-for="DataViolazione">Data Violazione</label>
-        <input asp-for="DataViolazione" class="form-control" />
+        <label for="DataViolazione">Data Violazione</label>
+        <input type="date" id="DataViolazione" name="DataViolazione" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="IndirizzoViolazione">Indirizzo Violazione</label>
-        <input asp-for="IndirizzoViolazione" class="form-control" />
+        <label for="IndirizzoViolazione">Indirizzo Violazione</label>
+        <input type="text" id="IndirizzoViolazione" name="IndirizzoViolazione" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="NominativoAgente">Nominativo Agente</label>
-        <input asp-for="NominativoAgente" class="form-control" />
+        <label for="NominativoAgente">Nominativo Agente</label>
+        <input type="text" id="NominativoAgente" name="NominativoAgente" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="DataTrascrizioneVerbale">Data Trascrizione Verbale</label>
-        <input asp-for="DataTrascrizioneVerbale" class="form-control" />
+        <label for="DataTrascrizioneVerbale">Data Trascrizione Verbale</label>
+        <input type="date" id="DataTrascrizioneVerbale" name="DataTrascrizioneVerbale" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="Importo">Importo</label>
-        <input asp-for="Importo" class="form-control" />
+        <label for="Importo">Importo</label>
+        <input type="number" id="Importo" name="Importo" class="form-control" />
     </div>
     <div class="form-group">
-        <label asp-for="DecurtamentoPunti">Decurtamento Punti</label>
-        <input asp-for="DecurtamentoPunti" class="form-control" />
+        <label for="DecurtamentoPunti">Decurtamento Punti</label>
+        <input type="number" id="DecurtamentoPunti" name="DecurtamentoPunti" class="form-control" />
     </div>
     <div class="form-group">
-        <label for="Idanagrafica">Nome</label>
-        <input asp-for="Anagrafica.Nome" class="form-control" placeholder="Nome" />
-    </div>
-    <div class="form-group">
-        <label for="Idanagrafica">Cognome</label>
-        <input asp-for="Anagrafica.Cognome" class="form-control" placeholder="Cognome" />
+        <label for="Idanagrafica">Anagrafica</label>
+        <select id="Idanagrafica" name="Idanagrafica" class="form-control">
+            <option value="">Seleziona un'anagrafica</option>
+            @foreach (var anagrafica in ViewBag.Anagrafiche)
+            {
+                <option value="@anagrafica.Idanagrafica">@anagrafica.NomeCompleto</option>
+            }
+        </select>
     </div>
     <div class="form-group">
         <label for="Idviolazione">Tipo Violazione</label>
-        <select asp-for="Idviolazione" class="form-control">
+        <select id="Idviolazione" name="Idviolazione" class="form-control">
             <option value="">Seleziona un tipo di violazione</option>
             @foreach (var tipoViolazione in ViewBag.TipiViolazione)
             {

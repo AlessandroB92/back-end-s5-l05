@@ -27,7 +27,7 @@ namespace back_end_s5_l05.Controllers
                 {
                     conn.Open();
 
-                    string query = "SELECT Idviolazione, descrizione FROM TIPO_VIOLAZIONE";
+                    string query = "SELECT Idviolazione, Descrizione FROM TIPO_VIOLAZIONE";
                     SqlCommand command = new SqlCommand(query, conn);
                     SqlDataReader reader = command.ExecuteReader();
 
@@ -36,7 +36,7 @@ namespace back_end_s5_l05.Controllers
                         TipoViolazione tipoViolazione = new TipoViolazione
                         {
                             Idviolazione = reader.GetInt32(0),
-                            descrizione = reader.GetString(1)
+                            Descrizione = reader.GetString(1)
                         };
 
                         tipiViolazione.Add(tipoViolazione);
@@ -50,5 +50,6 @@ namespace back_end_s5_l05.Controllers
 
             return View(tipiViolazione);
         }
+
     }
 }
