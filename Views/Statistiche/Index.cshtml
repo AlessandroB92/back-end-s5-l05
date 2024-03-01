@@ -9,17 +9,21 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Trasgressore</th>
+            <th>Anagrafica</th>
             <th>Totale Verbali</th>
+            <th>Totale Punti Decurtati</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var statistica in Model)
         {
             <tr>
-                <td>@statistica.IdAnagrafica</td>
+                <td>@statistica.NomeAnagrafica @statistica.CognomeAnagrafica</td>
                 <td>@statistica.TotaleVerbali</td>
+                <td>@statistica.TotalePuntiDecurtati</td>
             </tr>
         }
     </tbody>
 </table>
+
+

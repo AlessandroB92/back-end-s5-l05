@@ -1,0 +1,31 @@
+﻿@model List<back_end_s5_l05.Models.StatisticheVerbale>
+
+@{
+    ViewData["Title"] = "Totale";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Cognome</th>
+            <th>Nome</th>
+            <th>Data Violazione</th>
+            <th>Importo</th>
+            <th>Decurtamento Punti</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var statistica in Model)
+        {
+            <tr>
+                <td>@statistica.CognomeAnagrafica</td>
+                <td>@statistica.NomeAnagrafica</td>
+                <td>@statistica.DataViolazione.ToShortDateString()</td>
+                <td>@statistica.Importo</td>
+                <td>@statistica.TotalePuntiDecurtati</td>
+            </tr>
+        }
+    </tbody>
+</table>
