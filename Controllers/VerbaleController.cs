@@ -97,7 +97,7 @@ namespace back_end_s5_l05.Controllers
                     command.ExecuteNonQuery();
                 }
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Create");
             }
             catch (Exception ex)
             {

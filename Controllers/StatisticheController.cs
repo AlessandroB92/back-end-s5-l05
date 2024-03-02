@@ -93,7 +93,7 @@ namespace back_end_s5_l05.Controllers
                         };
 
                         statistiche.Add(statistica);
-                    }
+                    }reader.Close();
                 }
             }
             catch (Exception ex)
@@ -131,7 +131,7 @@ namespace back_end_s5_l05.Controllers
                             CognomeAnagrafica = reader.GetString(2),
                             DataViolazione = reader.GetDateTime(3),
                             TotaleVerbali = reader.GetInt32(4),
-                            Importo = reader.GetDecimal(5), // Aggiunto l'importo
+                            Importo = reader.GetDecimal(5),
                             TotalePuntiDecurtati = reader.GetInt32(6)
                         };
 
@@ -174,7 +174,7 @@ namespace back_end_s5_l05.Controllers
                         };
 
                         violazioni.Add(violazione);
-                    }
+                    }reader.Close();
                 }
             }
             catch (Exception ex)
